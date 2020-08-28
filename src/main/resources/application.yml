@@ -1,0 +1,15 @@
+spring:
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    database: mysql
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/knuapp?serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: knuapp
+
+server:
+  port: 8888
+
