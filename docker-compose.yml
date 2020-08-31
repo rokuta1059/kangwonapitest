@@ -1,0 +1,18 @@
+version: "3"
+services:
+  kangwonapi_db:
+    container_name: kangwonapi_db
+    image: mysql
+    environment:
+      MYSQL_DATABASE: knuapp
+      MYSQL_ROOT_HOST: root
+      MYSQL_ROOT_PASSWORD: knuapp
+    ports:
+      - 3306:3306
+
+  kangwonapitest:
+    build: .
+    ports:
+      - 8080:8080
+    depends_on:
+      - kangwonapi_db

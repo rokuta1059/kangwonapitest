@@ -9,9 +9,8 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="knuape_department")
-@Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn
+@Entity
+@Table(name = "table_backup")
 public class department {
 
     @Id
@@ -20,8 +19,11 @@ public class department {
     private String department;
     private String callnumber;
     private String location;
-
-    @Column(name="map_address")
+    @Column(name="map")
     private String mapAddress;
+    private String site;
+    @Column(name="site_append")
+    private String siteAppend;
+    private String crf;
 
 }
