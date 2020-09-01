@@ -14,8 +14,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/department")
 public class DepartmentJpaController {
-    @Autowired
-    private DepartmentRepository departmentRepository;
+
+    private final DepartmentRepository departmentRepository;
 
     @GetMapping
     public List<department> retrieveAllDepartments() {

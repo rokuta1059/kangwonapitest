@@ -3,6 +3,7 @@ spring:
     show-sql: true
     generate-ddl: true
     database: mysql
+#    database: h2
   h2:
     console:
       enabled: true
@@ -14,8 +15,8 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://kangwonapi_db:3306/knuapp?serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false
-    username: knuapp
+    url: jdbc:mysql://localhost:3306/knuapp?serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false
+    username: root
     password: knuapp
 
 server:
