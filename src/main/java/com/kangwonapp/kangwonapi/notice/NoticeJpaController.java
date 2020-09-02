@@ -15,13 +15,28 @@ public class NoticeJpaController {
 
     private final NoticeRepository noticeRepository;
 
+    /**
+     * 지정된 department의 공지를 받아온다
+     * @param department 공지를 받아 올 학과
+     * @return 공지 목록
+     */
     @GetMapping("/{department}")
     public List<notice> getNotice(@PathVariable String department) {
-        return noticeRepository.findbyDepartmentALL(department);
+        return noticeRepository.findByDepartmentOrderByDateAsc(department);
     }
 
-    @GetMapping("/all/{de}")
-    public List<notice> getNotice1234(@PathVariable String de) {
-        return noticeRepository.findByDepartmentOrderByDateAsc(de);
+    /**
+     * 지정된 department의 '공지' 항목만 받아온다
+     * @param department 공지를 받아 올 학과
+     * @return 공지 목록
+     */
+    @GetMapping("/{department}/announce")
+    public List<notice> getNoticeAnnounce(@PathVariable String department) {
+        return noticeRepository.findByAnnounce(department);
     }
+
+//    @GetMapping("/{de}")
+//    public List<notice> getNotice1234(@PathVariable String de) {
+//        return noticeRepository.findByDepartmentOrderByDateAsc(de);
+//    }
 }

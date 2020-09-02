@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -14,10 +15,12 @@ import javax.persistence.Id;
 public class notice {
 
     @Id
+    @Column(name="notice_id")
     private Long id;
 
+    @Column(name="department_id")
     private String department;
-    private String notice;
+    private String announce;
     private String name;
     private String date;
     private String url;
