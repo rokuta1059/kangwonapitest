@@ -19,6 +19,8 @@ public class dietdormitory {
     private String date;
     @Id
     private String dormitory;
+    @Id
+    private String week;
     private String breakfast;
     private String lunch;
     private String dinner;

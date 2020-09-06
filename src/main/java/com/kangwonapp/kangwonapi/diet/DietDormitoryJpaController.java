@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -25,6 +26,10 @@ public class DietDormitoryJpaController {
 
     @GetMapping("/{dormitory}")
     public List<dietdormitory> getDietByDormitory(@PathVariable String dormitory) {
-        return dietDormitoryRepository.findByDormitoryOrderByDateDesc(dormitory);
+        SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.DAY_OF_WEEK,Calendar.MONDAY);
+        // System.out.println(c.getTime());
+        return dietDormitoryRepository.findByDormitoryOrderByDateDesc(dormitory, fm.format(c.getTime()));
     }
 }

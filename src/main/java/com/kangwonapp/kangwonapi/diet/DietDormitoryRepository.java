@@ -11,8 +11,8 @@ public interface DietDormitoryRepository extends JpaRepository<dietdormitory, St
 
     List<dietdormitory> findByDate(String date);
 
-    @Query(value = "SELECT * from dietdormitory where dietdormitory.dormitory = ?1 order by dietdormitory.date DESC ", nativeQuery = true)
-    List<dietdormitory> findByDormitoryOrderByDateDesc(String dormitory);
+    @Query(value = "SELECT * from dietdormitory where dietdormitory.dormitory = ?1 and dietdormitory.date >= ?2 order by dietdormitory.date", nativeQuery = true)
+    List<dietdormitory> findByDormitoryOrderByDateDesc(String dormitory, String date);
 
     @Query(value = "SELECT * from dietdormitory where dietdormitory.date = ?1 and dietdormitory.dormitory = ?2 order by dietdormitory.date DESC ", nativeQuery = true)
     List<dietdormitory> findByDateAndDormitory(String date, String dormitory);
