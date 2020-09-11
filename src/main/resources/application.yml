@@ -15,10 +15,10 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/knuapp?serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false
-    username: root
-    password: knuapp
+    url: jdbc:mysql://localhost:3306/knuapp?serverTimezone=UTC&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&useSSL=false
+    username: admin
+    password: knuappdb
 
 server:
-  port: 8888
+  port: 8080
 
