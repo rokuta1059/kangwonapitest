@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -22,7 +24,13 @@ public class NoticeJpaController {
      */
     @GetMapping("/{department}")
     public List<notice> getNotice(@PathVariable String department) {
-        return noticeRepository.findByDepartmentOrderByDateAsc(department);
+        if (department.length() <= 3)
+            return noticeRepository.findByDepartmentOrderByDateDesc(department);
+        else {
+            String[] tokens = department.split("(?<=\\G.{3})");
+            List<String> token = new ArrayList(Arrays.asList(tokens));
+            return noticeRepository.findByDepartmentInOrderByDateDesc(token);
+        }
     }
 
     /**

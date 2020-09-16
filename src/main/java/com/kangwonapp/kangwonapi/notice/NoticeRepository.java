@@ -15,5 +15,7 @@ public interface NoticeRepository extends JpaRepository<notice, Long> {
     @Query(value = "SELECT * from notice where notice.announce = '공지' and notice.department = ?1 order by notice.date", nativeQuery = true)
     List<notice> findByAnnounce(String department);
 
-    List<notice> findByDepartmentOrderByDateAsc(String department);
+    List<notice> findByDepartmentOrderByDateDesc(String department);
+
+    List<notice> findByDepartmentInOrderByDateDesc(List<String> department);
 }

@@ -16,7 +16,7 @@ public class notice {
 
     @Id
     @Column(name="notice_id")
-    private Long id;
+    private String id;
 
     @Column(name="department_id")
     private String department;
