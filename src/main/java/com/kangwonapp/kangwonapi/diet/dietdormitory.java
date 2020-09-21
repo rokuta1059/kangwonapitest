@@ -1,5 +1,6 @@
 package com.kangwonapp.kangwonapi.diet;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,6 +17,7 @@ import javax.persistence.IdClass;
 public class dietdormitory {
 
     @Id
+    @JsonFormat(pattern="yyyy-MM-dd")
     private String date;
     @Id
     private String dormitory;

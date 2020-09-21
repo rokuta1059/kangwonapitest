@@ -1,5 +1,6 @@
 package com.kangwonapp.kangwonapi.notice;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,7 @@ public class notice {
     private String department;
     private String announce;
     private String name;
+    @JsonFormat(pattern="yyyy-MM-dd")
     private String date;
     private String url;
 
