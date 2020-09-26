@@ -1,7 +1,7 @@
 version: "3"
 services:
   kangwonapitest:
-    image: kangwon-spring:0.1
+    image: kangwon-spring:0.2
     build: .
     ports:
       - 8080:8080

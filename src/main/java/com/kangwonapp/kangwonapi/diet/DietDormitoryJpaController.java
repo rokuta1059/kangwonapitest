@@ -30,6 +30,6 @@ public class DietDormitoryJpaController {
         Calendar c = Calendar.getInstance();
         c.set(Calendar.DAY_OF_WEEK,Calendar.MONDAY);
         // System.out.println(c.getTime());
-        return dietDormitoryRepository.findByDormitoryOrderByDateDesc(dormitory, fm.format(c.getTime()));
+        return dietDormitoryRepository.findByDormitory(dormitory, fm.format(c.getTime()));
     }
 }

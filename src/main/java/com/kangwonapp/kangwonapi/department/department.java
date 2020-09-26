@@ -15,7 +15,7 @@ public class department {
     @Id
     private String id;
     private String college;
-    private String department;
+    private String name;
     private String callnumber;
     private String location;
     @Column(name="map")

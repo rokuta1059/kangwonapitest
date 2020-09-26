@@ -1,13 +1,13 @@
 package com.kangwonapp.kangwonapi.notice;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.kangwonapp.kangwonapi.department.department;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Formula;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
@@ -16,15 +16,18 @@ import javax.persistence.Id;
 public class notice {
 
     @Id
-    @Column(name="notice_id")
+    @Column(name="id_notice")
     private String id;
 
-    @Column(name="department_id")
-    private String department;
+    @Column(name="id_department")
+    private String departmentid;
     private String announce;
     private String name;
     @JsonFormat(pattern="yyyy-MM-dd")
     private String date;
     private String url;
+
+    @Formula("(select department.name from department where department.id = id_department)")
+    private String department_name;
 
 }

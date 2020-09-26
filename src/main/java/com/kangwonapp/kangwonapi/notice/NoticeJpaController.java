@@ -25,11 +25,11 @@ public class NoticeJpaController {
     @GetMapping("/{department}")
     public List<notice> getNotice(@PathVariable String department) {
         if (department.length() <= 3)
-            return noticeRepository.findByDepartmentOrderByDateDesc(department);
+            return noticeRepository.findByDepartmentidOrderByDateDesc(department);
         else {
             String[] tokens = department.split("(?<=\\G.{3})");
             List<String> token = new ArrayList(Arrays.asList(tokens));
-            return noticeRepository.findByDepartmentInOrderByDateDesc(token);
+            return noticeRepository.findByDepartmentidInOrderByDateDesc(token);
         }
     }
 
